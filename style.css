@@ -1,0 +1,178 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+}
+
+/* ===== BACKGROUND ===== */
+.bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 65%);
+  z-index: -1;
+}
+
+/* ===== SCENES ===== */
+.scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.scene.active {
+  opacity: 1;
+}
+
+/* ===== IMAGE BASE ===== */
+.img {
+  position: absolute;
+  width: 36%;
+  height: 55vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  animation: gentleZoom 24s linear forwards;
+}
+
+/* ===== ACT 1 ===== */
+.act1 .img {
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+}
+
+/* ===== ACT 2 ===== */
+.act2 .back {
+  left: 12%;
+  top: 10%;
+  filter: blur(2px) brightness(0.92);
+}
+
+.act2 .front {
+  right: 12%;
+  top: 18%;
+}
+
+/* ===== ACT 3 (FIXED IMAGES 5 & 6 ONLY) ===== */
+.act3 .overlap1,
+.act3 .overlap2 {
+  height: 48vh;              /* safer height */
+  object-fit: contain;       /* full visibility */
+  background: rgba(255,255,255,0.25);
+  padding: 6px;
+}
+
+/* positions */
+.act3 .overlap1 {
+  left: 16%;
+  top: 10%;
+}
+
+.act3 .overlap2 {
+  right: 16%;
+  top: 22%;
+}
+
+/* disable zoom for final act */
+.act3 .img {
+  animation: none;
+}
+
+/* ===== TEXT ===== */
+.text {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 85%;
+  text-align: center;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: #4a1c2d;
+
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,245,248,0.95),
+    rgba(255,245,248,0.95),
+    rgba(255,255,255,0)
+  );
+
+  padding: 16px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== START BUTTON ===== */
+.start {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 34px;
+  border-radius: 40px;
+  border: none;
+  font-size: 1rem;
+  background: linear-gradient(45deg, #ff4f81, #ff85a2);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255,79,129,0.5);
+}
+
+/* ===== FADE TO BLACK ===== */
+.fade-out {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 3s ease;
+  z-index: 10;
+}
+
+.fade-out.active {
+  opacity: 1;
+}
+
+/* ===== ZOOM ===== */
+@keyframes gentleZoom {
+  from { transform: translateX(-50%) scale(1); }
+  to   { transform: translateX(-50%) scale(1.03); }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .img {
+    width: 75%;
+    height: 42vh;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
+
+  .act1 .img { top: 6%; }
+  .act2 .back { top: 6%; }
+  .act2 .front { top: 28%; }
+  .act3 .overlap1 { top: 8%; }
+  .act3 .overlap2 { top: 30%; }
+
+  .text {
+    font-size: 1.1rem;
+    bottom: 3%;
+  }
+}

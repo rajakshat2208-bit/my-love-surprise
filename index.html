@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love</title>
+
+  <!-- Cinematic Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<!-- ACT 1 -->
+<div class="scene act1 active">
+  <img src="images/img1.jpg" class="img">
+  <p class="text">
+    It all started with a random chat…<br>
+    and somehow, you became my whole world.
+  </p>
+</div>
+
+<!-- ACT 2 -->
+<div class="scene act2">
+  <img src="images/img3.jpg" class="img back">
+  <img src="images/img4.jpg" class="img front">
+  <p class="text">
+    everything is temporary but madam ji se jaan bhujkar daant sunna is permanent.
+  </p>
+</div>
+
+<!-- ACT 3 -->
+<div class="scene act3">
+  <img src="images/img5.jpg" class="img overlap1">
+  <img src="images/img6.jpg" class="img overlap2">
+  <p class="text">
+    ek din meri bhi biwi bolegi payal utar deti hu verna awaz bhar jayegi<br>
+    or fir woh mujhe lato se kootegi.
+  </p>
+</div>
+
+<!-- Fade to black -->
+<div class="fade-out"></div>
+
+<button class="start" onclick="startFilm()">Tap to Begin</button>
+
+<audio id="song" src="music.mp3"></audio>
+<script src="script.js"></script>
+
+</body>
+</html>
